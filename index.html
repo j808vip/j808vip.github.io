@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>抽卡活動</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>🎴 抽卡遊戲</h1>
+
+<!-- =========================
+     👤 登入區
+========================= -->
+<div id="loginArea">
+  <input id="uid" placeholder="輸入編號姓名">
+  <button id="loginBtn" onclick="login()">登入</button>
+  <button id="logoutBtn" onclick="logout()" style="display:none;">登出</button>
+</div>
+
+<!-- =========================
+     🎯 狀態區
+========================= -->
+<div id="chance"></div>
+
+<!-- =========================
+     🎴 分享資料區（SSR來源）
+========================= -->
+<div id="shareArea">
+  <div id="cards"></div>
+  <div id="result"></div>
+</div>
+
+<!-- =========================
+     🎮 按鈕區
+========================= -->
+<div id="actionBtns">
+
+  <button onclick="ShareIG()">📤 SSR分享</button>
+
+  <button id="copyBtn" onclick="copyCode()" class="copy" style="display:none;">
+    📋 複製驗證碼
+  </button>
+
+  <button id="drawAgainBtn" style="display:none;">
+    🎴 再抽一次
+  </button>
+
+</div>
+
+<!-- =========================
+     📜 JS（正確載入順序）
+========================= -->
+
+<!-- 主邏輯 -->
+<script src="script.js"></script>
+
+<!-- 分享功能（SSR生成） -->
+<script defer src="share.js"></script>
+
+<!-- SSR重要：掛 global（避免 onclick 找不到） -->
+<script>
+  window.ShareIG = ShareIG;
+</script>
+
+<!-- overlay -->
+<div id="overlay"></div>
+
+</body>
+</html>
