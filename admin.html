@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>後台管理</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>🔧 後台管理</h1>
+
+<!-- 登入區 -->
+<div id="loginArea">
+  帳號：<input id="user"><br>
+  密碼：<input type="password" id="pass"><br>
+  <button onclick="adminLogin()">登入</button>
+</div>
+
+<!-- 後台面板 -->
+<div id="adminPanel" style="display:none;">
+  <br><button onclick="adminLogout()">登出</button>
+  <h2>用戶管理</h2>
+  
+  <!-- 查詢使用者 -->
+  編號姓名：<input id="searchUser" placeholder="輸入編號姓名">
+  <button onclick="getUserData()">讀取資料</button><br><br>
+
+  <!-- 修改使用者表單 -->
+  編號姓名：<span id="editUser" class="highlightText"></span><br>
+  遊戲次數：<input id="editTimes" type="number" style="width:60px;"><br>
+  個人中獎率(%)：<input id="editRate" type="number" style="width:60px;"><br>
+  必中次數：<input id="editMust" type="number" style="width:60px;"><br>
+  已抽次數：<input id="editUsed" type="number" readonly style="width:60px;"><br>
+  <button onclick="updateUser()">修改更新</button>
+
+  <hr>
+
+  <h2>抽獎紀錄</h2>
+  <button onclick="loadLogs()">載入抽獎紀錄</button>
+  <div id="logArea"></div>
+
+
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
